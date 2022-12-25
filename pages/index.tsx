@@ -13,7 +13,7 @@ const Index: NextPage = () => {
     void call();
   }, []);
 
-  return <div className="font-lexend">hello world</div>;
+  return <div className="font-lexend">hello world, testing</div>;
 };
 
 export default Index;
