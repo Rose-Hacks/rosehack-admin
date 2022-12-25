@@ -7,8 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        lexend: ["Lexend"],
-        pixel: ["'Press Start 2P'", "cursive"],
+        lexend: ["var(--font-lexend)"],
       },
     },
   },
