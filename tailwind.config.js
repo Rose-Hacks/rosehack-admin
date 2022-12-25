@@ -5,7 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        lexend: ["Lexend"],
+        pixel: ["'Press Start 2P'", "cursive"],
+      },
+    },
   },
   plugins: [],
 };
