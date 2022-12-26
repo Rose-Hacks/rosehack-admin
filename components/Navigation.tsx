@@ -11,7 +11,7 @@ const Navigation = () => {
   return (
     <div className="from:bg-header-left to:bg-header-right min-h-[10vh]">
       <Navbar
-        className="bg-gradient-to-r from-header-left to-header-right min-h-[10vh] px-4"
+        className="bg-admin-primary min-h-[10vh] px-4"
         expand="md"
         fixed="top"
       >
@@ -22,19 +22,19 @@ const Navigation = () => {
           <FaBars size="30" />
         </Navbar.Toggle>
         <Navbar.Collapse className="flex justify-center items-center">
-          <Nav className="font-pixel flex lg:w-6/12 w-full justify-center items-center">
+          <Nav className="font-lexend font-medium flex lg:w-6/12 w-full justify-center items-center">
             {user?.email === "rosehackucr@gmail.com" && (
               <Nav.Link
-                href="/admin"
-                className="!text-xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
+                href="/"
+                className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
               >
                 PARTICIPANTS
               </Nav.Link>
             )}
             {user?.email === "rosehackucr@gmail.com" && (
               <Nav.Link
-                href="/admin/groups"
-                className="!text-xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
+                href="/teams"
+                className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
               >
                 GROUPS
               </Nav.Link>
@@ -50,7 +50,7 @@ const Navigation = () => {
                       console.log(error);
                     });
                 }}
-                className="!text-xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
+                className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
               >
                 LOGOUT
               </Nav.Link>
@@ -58,7 +58,7 @@ const Navigation = () => {
 
             <Nav.Link
               href="/"
-              className="!text-xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
+              className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
             >
               WEBSITE
             </Nav.Link>
