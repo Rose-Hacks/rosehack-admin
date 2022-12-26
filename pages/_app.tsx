@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Lexend } from "@next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
