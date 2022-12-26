@@ -9,6 +9,11 @@ module.exports = {
       fontFamily: {
         lexend: ["var(--font-lexend)"],
       },
+      colors: {
+        admin: {
+          primary: "#8700A9",
+        },
+      },
     },
   },
   plugins: [],
