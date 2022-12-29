@@ -53,7 +53,7 @@ const Admin = () => {
   const [snackBar, setSnackBar] = useState(
     "hidden z-50 bg-black/60 text-white text-center p-2 fixed bottom-[30px] left-1/2 -translate-x-1/2"
   );
-
+  const [message, setMessage] = useState("email copied");
   const copyToClipboard = async (copyText: string) => {
     await navigator.clipboard.writeText(copyText);
     setSnackBar(
@@ -270,11 +270,12 @@ const Admin = () => {
 
                   <div className="text-center w-1/3 border-r-2 border-white flex justify-start items-center">
                     <div className="text-center text-white text-lg font-lexand ml-2">
-                      {user.email}
+                      {user.email.toLowerCase()}
                     </div>
                     <FaRegCopy
                       className="ml-2 text-blue-300 text-lg font-lexand"
                       onClick={() => {
+                        setMessage("email copied");
                         void copyToClipboard(user.email);
                       }}
                     />
@@ -347,6 +348,13 @@ const Admin = () => {
                           {user.team === "" || user.team === undefined
                             ? "Independent"
                             : user.team}
+                          <FaRegCopy
+                            className="ml-2 text-blue-300 text-lg font-lexand hover:cursor-pointer"
+                            onClick={() => {
+                              setMessage("team ID copied");
+                              void copyToClipboard(user.team);
+                            }}
+                          />
                         </p>
                       </div>
                       <div className="p-0 m-0 font-light">
@@ -431,7 +439,7 @@ const Admin = () => {
           </Accordion>
         </div>
         <div className="w-11/12 h-8 border-x-4 border-b-4 border-white rounded-b-2xl  bg-admin-dark/40 flex flex-row" />
-        <div className={snackBar}>Email Copied</div>
+        <div className={snackBar}>{message}</div>
       </div>
     );
   }
