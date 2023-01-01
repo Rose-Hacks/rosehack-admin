@@ -41,6 +41,7 @@ interface user {
   allergies: boolean;
   status: string;
   team: string;
+  rsvp: string;
 }
 
 const Admin = () => {
@@ -245,10 +246,15 @@ const Admin = () => {
                 className="w-full"
               >
                 <Accordion.Header className="w-full border-b-4 border-white list-unstyled">
-                  <div className="text-center w-1/12 border-r-2 border-white flex justify-center items-center">
+                  <div className="text-center w-1/12 border-r-2 border-white flex justify-evenly items-center">
                     {user.status === "pending" ? (
                       <FaRegClock className="text-yellow-500 text-xl" />
                     ) : user.status === "approved" ? (
+                      <FaCheck className="text-green-500 text-xl" />
+                    ) : (
+                      <FaTimes className="text-red-500 text-xl" />
+                    )}
+                    {user.rsvp === "yes" ? (
                       <FaCheck className="text-green-500 text-xl" />
                     ) : (
                       <FaTimes className="text-red-500 text-xl" />
