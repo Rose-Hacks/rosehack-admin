@@ -285,7 +285,7 @@ const Admin = () => {
                       {user.status === "approved" ? (
                         <>
                           <Button variant="secondary" disabled>
-                            Approve
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button
                             variant="danger"
@@ -293,7 +293,7 @@ const Admin = () => {
                               void handleStatus(user.email, "rejected");
                             }}
                           >
-                            Reject
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       ) : user.status === "rejected" ? (
@@ -304,10 +304,10 @@ const Admin = () => {
                               void handleStatus(user.email, "approved");
                             }}
                           >
-                            Approve
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button variant="secondary" disabled>
-                            Reject
+                          <FaTimes className="text-xl" />
                           </Button>
                         </>
                       ) : (
@@ -318,7 +318,7 @@ const Admin = () => {
                               void handleStatus(user.email, "approved");
                             }}
                           >
-                            Approve
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button
                             variant="danger"
@@ -326,7 +326,7 @@ const Admin = () => {
                               void handleStatus(user.email, "rejected");
                             }}
                           >
-                            Reject
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       )}
