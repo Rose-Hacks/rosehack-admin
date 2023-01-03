@@ -307,7 +307,7 @@ const Admin = () => {
                             <FaCheck className="text-xl" />
                           </Button>
                           <Button variant="secondary" disabled>
-                          <FaTimes className="text-xl" />
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       ) : (
