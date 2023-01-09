@@ -291,9 +291,9 @@ const Admin = () => {
                     <div className="flex w-9/12 flex-row justify-between items-center">
                       {user.status === "approved" ? (
                         <>
-                        <Button variant="success" disabled>
-                        <FaCheck className="text-xl" />
-                        </Button>
+                          <Button variant="success" disabled>
+                            <FaCheck className="text-xl" />
+                          </Button>
 
                           <Button
                             variant="danger"
