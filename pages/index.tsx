@@ -291,16 +291,17 @@ const Admin = () => {
                     <div className="flex w-9/12 flex-row justify-between items-center">
                       {user.status === "approved" ? (
                         <>
-                          <Button variant="secondary" disabled>
-                            Approve
+                          <Button variant="success" disabled>
+                            <FaCheck className="text-xl" />
                           </Button>
+
                           <Button
                             variant="danger"
                             onClick={() => {
                               void handleStatus(user.email, "rejected");
                             }}
                           >
-                            Reject
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       ) : user.status === "rejected" ? (
@@ -311,10 +312,10 @@ const Admin = () => {
                               void handleStatus(user.email, "approved");
                             }}
                           >
-                            Approve
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button variant="secondary" disabled>
-                            Reject
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       ) : (
@@ -325,7 +326,7 @@ const Admin = () => {
                               void handleStatus(user.email, "approved");
                             }}
                           >
-                            Approve
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button
                             variant="danger"
@@ -333,7 +334,7 @@ const Admin = () => {
                               void handleStatus(user.email, "rejected");
                             }}
                           >
-                            Reject
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       )}

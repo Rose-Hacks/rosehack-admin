@@ -232,7 +232,7 @@ const Teams = () => {
                       {team.data.status === "approved" ? (
                         <>
                           <Button variant="secondary" disabled>
-                            Qualify
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button
                             variant="danger"
@@ -240,7 +240,7 @@ const Teams = () => {
                               void handleUpdate("status", team.id, "rejected");
                             }}
                           >
-                            Disqualify
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       ) : (
@@ -251,10 +251,10 @@ const Teams = () => {
                               void handleUpdate("status", team.id, "approved");
                             }}
                           >
-                            Qualify
+                            <FaCheck className="text-xl" />
                           </Button>
                           <Button variant="secondary" disabled>
-                            Disqualify
+                            <FaTimes className="text-xl" />
                           </Button>
                         </>
                       )}
