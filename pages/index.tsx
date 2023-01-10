@@ -114,6 +114,14 @@ const Admin = () => {
 
   const handleStatusFilter = (status: string) => {
     setStatusFilter(status);
+    if (status === "RSVP") {
+      setFilteredUsers(
+        users.filter((user: user) => {
+          return user.rsvp == "yes";
+        })
+      );
+      return;
+    }
     if (status !== "all") {
       setFilteredUsers(
         users.filter((user: user) => {
@@ -151,58 +159,63 @@ const Admin = () => {
       <div className="min-h-screen p-5 bg-admin-primary flex justify-center items-center flex-col">
         <p className="font-pixel text-3xl text-white">
           {filteredUsers.length}{" "}
-          {statusFilter === "all"
+          {statusFilter === "RSVP" ? "RSVP" : statusFilter === "all"
             ? "Registered"
             : statusFilter === "approved"
-            ? "Approved"
-            : statusFilter === "rejected"
-            ? "Rejected"
-            : "Pending"}{" "}
+              ? "Approved"
+              : statusFilter === "rejected"
+                ? "Rejected"
+                : "Pending"}{" "}
           Participants
         </p>
         <div className="w-11/12 my-5">
           <div className="w-full flex flex-row justify-start items-center">
             <Badge
-              className={`${
-                statusFilter === "all" ? "!bg-blue-400" : "!bg-admin-dark/40"
-              } hover:!bg-blue-400 hover:cursor-pointer !rounded-tl-2xl !rounded-bl-none !rounded-br-none !rounded-tr-none !text-base !font-lexand !text-white border-l-4 border-t-4 border-white p-2`}
+              className={`${statusFilter === "all" ? "!bg-blue-400" : "!bg-admin-dark/40"
+                } hover:!bg-blue-400 hover:cursor-pointer !rounded-tl-2xl !rounded-bl-none !rounded-br-none !rounded-tr-none !text-base !font-lexand !text-white border-l-4 border-t-4 border-white p-2`}
               bg="none"
               onClick={() => handleStatusFilter("all")}
             >
               All
             </Badge>
             <Badge
-              className={`${
-                statusFilter === "pending"
-                  ? "!bg-yellow-400"
-                  : "!bg-admin-dark/40"
-              } hover:!bg-yellow-400 hover:cursor-pointer !rounded-none !text-base !font-lexand !text-white border-x-4 border-t-4 border-white p-2`}
+              className={`${statusFilter === "pending"
+                ? "!bg-yellow-400"
+                : "!bg-admin-dark/40"
+                } hover:!bg-yellow-400 hover:cursor-pointer !rounded-none !text-base !font-lexand !text-white border-x-4 border-t-4 border-white p-2`}
               bg="none"
               onClick={() => handleStatusFilter("pending")}
             >
               Pending
             </Badge>
             <Badge
-              className={`${
-                statusFilter === "approved"
-                  ? "!bg-green-400"
-                  : "!bg-admin-dark/40"
-              } hover:!bg-green-400 hover:cursor-pointer !rounded-none !text-base !font-lexand !text-white border-r-4 border-t-4 border-white p-2`}
+              className={`${statusFilter === "approved"
+                ? "!bg-green-400"
+                : "!bg-admin-dark/40"
+                } hover:!bg-green-400 hover:cursor-pointer !rounded-none !text-base !font-lexand !text-white border-r-4 border-t-4 border-white p-2`}
               bg="none"
               onClick={() => handleStatusFilter("approved")}
             >
               Approved
             </Badge>
             <Badge
-              className={`${
-                statusFilter === "rejected"
-                  ? "!bg-red-400"
-                  : "!bg-admin-dark/40"
-              } hover:!bg-red-400 hover:cursor-pointer !rounded-tl-none !rounded-bl-none !rounded-br-none !rounded-tr-2xl !text-base !font-lexand !text-white border-r-4 border-t-4 border-white p-2`}
+              className={`${statusFilter === "rejected"
+                ? "!bg-red-400"
+                : "!bg-admin-dark/40"
+                } hover:!bg-red-400 hover:cursor-pointer !rounded-none !text-base !font-lexand !text-white border-r-4 border-t-4 border-white p-2`}
               bg="none"
               onClick={() => handleStatusFilter("rejected")}
             >
               Rejected
+            </Badge><Badge
+              className={`${statusFilter === "RSVP"
+                ? "!bg-purple-400"
+                : "!bg-admin-dark/40"
+                } hover:!bg-purple-400 hover:cursor-pointer !rounded-tl-none !rounded-bl-none !rounded-br-none !rounded-tr-2xl !text-base !font-lexand !text-white border-r-4 border-t-4 border-white p-2`}
+              bg="none"
+              onClick={() => handleStatusFilter("RSVP")}
+            >
+              RSVP
             </Badge>
           </div>
           <div className="w-full flex flex-row justify-between items-center">
