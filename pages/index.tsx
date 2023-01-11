@@ -83,8 +83,14 @@ const Admin = () => {
       await axios
         .get("/api/getAllUsers")
         .then((response) => {
-          setUsers(response.data);
-          setFilteredUsers(response.data);
+          const array = response.data.sort((a: any, b: any) => {
+            return a.first.toUpperCase() >= b.first.toUpperCase();
+          });
+          console.log(response.data[0].first);
+          console.log(response.data[0].last);
+          console.log(response.data[0].first >= response.data[0].last);
+          setUsers(array);
+          setFilteredUsers(array);
         })
         .catch((error) => {
           console.log(error);
@@ -133,6 +139,13 @@ const Admin = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleDelete = (email: string, team: string) => {
+    void axios.post("/api/deleteUser", { email, team }).then(() => {
+      alert("Deleted User");
+    });
+    setTrigger(!trigger);
   };
 
   if (user !== "rosehackucr@gmail.com") {
@@ -338,6 +351,12 @@ const Admin = () => {
                           </Button>
                         </>
                       )}
+                      <Button
+                        variant="danger"
+                        onClick={() => handleDelete(user.email, user.team)}
+                      >
+                        DELETE
+                      </Button>
                       <FaAngleDown className="text-white text-2xl ml-2" />
                     </div>
                   </div>
