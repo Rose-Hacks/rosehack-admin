@@ -33,10 +33,26 @@ const Navigation = () => {
             )}
             {user?.email === "rosehackucr@gmail.com" && (
               <Nav.Link
+                href="/rsvp"
+                className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
+              >
+                RSVP
+              </Nav.Link>
+            )}
+            {user?.email === "rosehackucr@gmail.com" && (
+              <Nav.Link
                 href="/teams"
                 className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
               >
                 GROUPS
+              </Nav.Link>
+            )}
+            {user?.email === "rosehackucr@gmail.com" && (
+              <Nav.Link
+                href="/checkin"
+                className="!text-2xl text-center text-white p-3 hover:underline decoration-4 underline-offset-8"
+              >
+                CHECKIN
               </Nav.Link>
             )}
             {user?.email === "rosehackucr@gmail.com" && (
