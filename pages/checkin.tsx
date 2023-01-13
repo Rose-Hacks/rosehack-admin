@@ -28,7 +28,7 @@ const Checkin = () => {
   return (
     <div className="w-full flex justify-center items-center flex-col bg-admin-primary text-white">
       {message && (
-        <div className="flex justify-between w-1/6 items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-admin-primary text-white font-lexend text-2xl rounded px-4 py-2">
+        <div className="flex justify-between sm:w-1/6 w-2/3 items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-admin-primary text-white font-lexend text-2xl rounded px-4 py-2">
           Success!
           <FaTimes
             className="text-red-500 hover:cursor-pointer"
@@ -38,9 +38,11 @@ const Checkin = () => {
       )}
 
       <div className="w-1/2 flex justify-center items-center flex-col pt-5">
-        <p className="font-lexend text-5xl font-bold ">Participant Checkin</p>
+        <p className="font-lexend text-5xl font-bold text-center">
+          Participant Checkin
+        </p>
       </div>
-      <div className="w-1/2 flex justify-center items-center">
+      <div className="sm:w-1/2 w-11/12 flex justify-center items-center">
         <video ref={ref} className="w-10/12 border-8 border-white" />
       </div>
       <p className="font-lexend text-xl font-bold mt-2">Email: {result}</p>
